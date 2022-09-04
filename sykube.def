@@ -3,7 +3,7 @@
 #
 
 Bootstrap: docker
-From: ubuntu:xenial
+From: ubuntu:20.04
 
 %environment
     export PATH=/opt/go/bin:$PATH
@@ -27,7 +27,7 @@ EOF
     echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
     apt-get update -y
     apt-get install -y --no-install-recommends supervisor iproute2 iputils-ping ethtool ebtables kmod
-    apt-get install -y --no-install-recommends kubelet=1.16.3-00 kubectl=1.16.3-00 kubeadm=1.16.3-00
+    apt-get install -y --no-install-recommends kubelet=1.20.9-00 kubectl=1.20.9-00 kubeadm=1.20.9-00
     apt-get install -y --no-install-recommends squashfs-tools libssl-dev uuid-dev libseccomp-dev libseccomp2
     apt-get install -y --no-install-recommends gcc make git pkg-config less cryptsetup
 
@@ -155,7 +155,7 @@ nodeRegistration:
 ---
 apiVersion: kubeadm.k8s.io/v1beta2
 kind: ClusterConfiguration
-kubernetesVersion: v1.16.3
+kubernetesVersion: v1.20.9
 networking:
   podSubnet: 10.244.0.0/16
 ---
